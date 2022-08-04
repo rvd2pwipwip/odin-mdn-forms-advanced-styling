@@ -1,0 +1,39 @@
+input {
+  appearance: none;
+}
+
+input[type="checkbox"] {
+  position: relative;
+  width: 1.25em;
+  height: 1.25em;
+  border: 2px solid gray;
+  border-radius: 25%;
+  /* Adjusts the position of the checkboxes on the text baseline */
+  vertical-align: -4px;
+  /* Set here so that Windows' High-Contrast Mode can override */
+  color: green;
+}
+
+input[type="checkbox"]::before {
+  content: "✔";
+  position: absolute;
+  font-size: 1.2em;
+  right: -1px;
+  top: -0.2em;
+  visibility: hidden;
+}
+
+input[type="checkbox"]:checked::before {
+  /* Use `visibility` instead of `display` to avoid recalculating layout */
+  visibility: visible;
+}
+
+input[type="checkbox"]:checked {
+  border-color: green;
+}
+
+input[type="checkbox"]:disabled {
+  border-color: black;
+  background: #ddd;
+  color: gray;
+}
